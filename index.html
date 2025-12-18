@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8" />
+    <title>NieuwsVandaag · Home</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style>
+        :root {
+            --accent: #0059b3;
+            --accent-soft: #e6f0ff;
+            --bg: #f3f4f5;
+            --text: #111111;
+            --border: #dddddd;
+            --card-bg: #ffffff;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.4;
+        }
+
+        /* HEADER */
+
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            background: #ffffff;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .header-inner {
+            max-width: 1120px;
+            margin: 0 auto;
+            padding: 0.75rem 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+        }
+
+        .logo {
+            font-weight: 800;
+            font-size: 1.4rem;
+            letter-spacing: 0.02em;
+            color: var(--accent);
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .logo span.icon {
+            display: inline-flex;
+            width: 26px;
+            height: 26px;
+            border-radius: 6px;
+            background: var(--accent);
+            color: #ffffff;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.9rem;
+        }
+
+        nav {
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        nav ul {
+            display: flex;
+            gap: 1rem;
+            list-style: none;
+            white-space: nowrap;
+            font-size: 0.9rem;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #333333;
+            padding-bottom: 0.2rem;
+            border-bottom: 2px solid transparent;
+        }
+
+        nav a:hover {
+            border-bottom-color: var(--accent);
+        }
+
+        nav a.active {
+            border-bottom-color: var(--accent);
+            font-weight: 600;
+        }
+
+        /* LAY-OUT */
+
+        main {
+            max-width: 1120px;
+            margin: 1rem auto;
+            padding: 0 1rem 2rem;
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 1.25rem;
+        }
+
+        /* TOP STORY */
+
+        .top-story {
+            background: var(--card-bg);
+            border-radius: 10px;
+            border: 1px solid var(--border);
+            padding: 1rem;
+            display: flex;
+            gap: 1rem;
+        }
+
+        .top-story-image {
+            flex: 1.1;
+            background: #cccccc;
+            border-radius: 8px;
+            min-height: 170px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            color: #555555;
+            overflow: hidden;
+        }
+
+        .top-story-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .top-story-content {
+            flex: 1.3;
+            display: flex;
+            flex-direction: column;
+            gap: 0.6rem;
+        }
+
+        .label {
+            display: inline-flex;
+            align-items: center;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--accent);
+            background: var(--accent-soft);
+            border-radius: 999px;
+            padding: 0.2rem 0.6rem;
+        }
+
+        .top-story h1 {
+            font-size: 1.4rem;
+            line-height: 1.2;
+        }
+
+        .meta {
+            font-size: 0.8rem;
+            color: #666666;
+        }
+
+        .top-story p {
+            font-size: 0.9rem;
+            color: #333333;
+        }
+
+        .top-story a.read-more {
+            align-self: flex-start;
+            margin-top: auto;
+            font-size: 0.85rem;
+            padding: 0.4rem 0.8rem;
+            border-radius: 999px;
+            border: 1px solid var(--accent);
+            text-decoration: none;
+            color: var(--accent);
+        }
+
+        .top-story a.read-more:hover {
+            background: var(--accent);
+            color: #ffffff;
+        }
+
+        /* NIEUWSGRID */
+
+        .news-grid {
+            margin-top: 1rem;
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 0.75rem;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border-radius: 10px;
+            border: 1px solid var(--border);
+            padding: 0.7rem 0.8rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.35rem;
+            font-size: 0.88rem;
+            cursor: pointer;
+            transition: transform 0.06s ease, box-shadow 0.06s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+        }
+
+        .card h2 {
+            font-size: 0.98rem;
+            line-height: 1.2;
+        }
+
+        .card p {
+            font-size: 0.82rem;
+            color: #444444;
+        }
+
+        .card-link {
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+
+        /* SIDEBAR */
+
+        .sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .sidebar-block {
+            background: var(--card-bg);
+            border-radius: 10px;
+            border: 1px solid var(--border);
+            padding: 0.9rem;
+        }
+
+        .sidebar-block h3 {
+            font-size: 0.95rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .sidebar-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0.4rem;
+            font-size: 0.85rem;
+        }
+
+        .sidebar-list li {
+            display: flex;
+            justify-content: space-between;
+            gap: 0.5rem;
+        }
+
+        .sidebar-list span.time {
+            color: #777777;
+            font-size: 0.78rem;
+            white-space: nowrap;
+        }
+
+        /* FOOTER */
+
+        footer {
+            border-top: 1px solid var(--border);
+            padding: 1rem;
+            font-size: 0.8rem;
+            text-align: center;
+            color: #777777;
+            background: #ffffff;
+        }
+
+        /* RESPONSIVE */
+
+        @media (max-width: 900px) {
+            main {
+                grid-template-columns: 1fr;
+            }
+
+            .top-story {
+                flex-direction: column;
+            }
+
+            .news-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+        }
+
+        @media (max-width: 640px) {
+            .header-inner {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .news-grid {
+                grid-template-columns: 1fr;
+            }
+
+            nav ul {
+                gap: 0.7rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<header>
+    <div class="header-inner">
+        <div class="logo">
+            <span class="icon">N</span>
+            <span>NieuwsVandaag</span>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#" class="active">Voorpagina</a></li>
+                <li><a href="#">Binnenland</a></li>
+                <li><a href="#">Buitenland</a></li>
+                <li><a href="#">Economie</a></li>
+                <li><a href="#">Sport</a></li>
+                <li><a href="#">Tech</a></li>
+                <li><a href="#">Lifestyle</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<main>
+    <section>
+        <article class="top-story">
+            <div class="top-story-image">
+                <img src="John-Pork.png" alt="John-Pork">
+            </div>
+            <div class="top-story-content">
+                <span class="label">Songfestival</span>
+                <h1>
+                    Lil Kleine heeft stiekem een relatie met John Pork?
+                </h1>
+                <div class="meta">Vandaag · 10:21 · Door redactie</div>
+                <p>
+                    Het begon als een grapje. Een meme. Een willekeurige TikTok-edit met dramatische muziek, slechte Photoshop en een bijschrift dat luidde: “Love wins.”
+                    Maar binnen een paar uur was Nederland in de ban van één brandende vraag: heeft rapper Lil Kleine stiekem een relatie met internetlegende John Pork?
+                </p>
+                <a href="johnpork-x-lilkleine.html" class="read-more">Lees het hele artikel</a>
+            </div>
+        </article>
+
+        <section class="news-grid" aria-label="Meer nieuws">
+            <article class="card">
+                <a href="jongeren-schulden.html" class="card-link">
+                    <span class="label">Binnenland</span>
+                    <h2>Nieuwe regels moeten jongeren beschermen tegen schulden</h2>
+                    <p>
+                        Steeds meer jongeren lopen vast door kleine schulden die snel groter worden. Nieuwe regels en
+                        duidelijke afspraken moeten voorkomen dat een gemiste betaling uitloopt op jarenlange stress.
+                    </p>
+                </a>
+            </article>
+
+            <article class="card">
+                <a href="sport-thriller.html" class="card-link">
+                    <span class="label">Sport</span>
+                    <h2>Thuisploeg wint in bloedstollende slotfase</h2>
+                    <p>
+                        De stand bleef lang gelijk, tot één speler in de extra tijd het verschil maakte. Het stadion
+                        ontplofte, de trainer was sprakeloos en de tegenstander baalde stevig.
+                    </p>
+                </a>
+            </article>
+
+            <article class="card">
+                <a href="economie-prijzen.html" class="card-link">
+                    <span class="label">Economie</span>
+                    <h2>Prijzen stijgen minder snel, maar boodschappen blijven duur</h2>
+                    <p>
+                        Goed nieuws en minder goed nieuws tegelijk: de inflatie zakt, maar aan de kassa voelt het nog
+                        steeds pittig. Huishoudens zoeken naar slimme manieren om te besparen.
+                    </p>
+                </a>
+            </article>
+
+            <article class="card">
+                <a href="tech-apparaat.html" class="card-link">
+                    <span class="label">Tech</span>
+                    <h2>Nieuw slim apparaat stofzuigt én dweilt tegelijk</h2>
+                    <p>
+                        Je zet ’m aan en hij doet de rest. Voor drukke gezinnen en mensen met weinig energie kan dit
+                        apparaat een groot verschil maken in het dagelijks leven.
+                    </p>
+                </a>
+            </article>
+
+            <article class="card">
+                <a href="buitenland-topoverleg.html" class="card-link">
+                    <span class="label">Buitenland</span>
+                    <h2>Topoverleg levert voorzichtig akkoord op</h2>
+                    <p>
+                        Wereldleiders schuiven al dagen aan tafel. Er is geen grote doorbraak, maar kleine stapjes
+                        vooruit geven hoop dat de spanningen langzaam kunnen afnemen.
+                    </p>
+                </a>
+            </article>
+
+            <article class="card">
+                <a href="lifestyle-rustiger-leven.html" class="card-link">
+                    <span class="label">Lifestyle</span>
+                    <h2>Steeds meer mensen kiezen bewust voor een rustiger leven</h2>
+                    <p>
+                        Minder rennen, minder moeten, meer tijd voor jezelf. Van baanwissel tot verhuisplannen:
+                        Nederlanders zoeken massaal naar meer balans.
+                    </p>
+                </a>
+            </article>
+        </section>
+    </section>
+
+    <aside class="sidebar" aria-label="Zijbalk">
+        <section class="sidebar-block">
+            <h3>Meest gelezen</h3>
+            <ul class="sidebar-list">
+                <li>
+                    <span>Tips om je energieverbruik te verlagen</span>
+                    <span class="time">09:12</span>
+                </li>
+                <li>
+                    <span>Grote storing zorgt voor vertragingen</span>
+                    <span class="time">08:47</span>
+                </li>
+                <li>
+                    <span>Vraag & antwoord: wat betekent inflatie voor jou?</span>
+                    <span class="time">07:33</span>
+                </li>
+            </ul>
+        </section>
+
+        <section class="sidebar-block">
+            <h3>Liveblog</h3>
+            <ul class="sidebar-list">
+                <li>
+                    <span>Live: reacties op besluit overheid lopen uiteen</span>
+                    <span class="time">NU</span>
+                </li>
+                <li>
+                    <span>Update: nieuwe cijfers laten daling zien</span>
+                    <span class="time">10:05</span>
+                </li>
+                <li>
+                    <span>Vraag en antwoord: wat betekent dit voor jou?</span>
+                    <span class="time">09:40</span>
+                </li>
+            </ul>
+        </section>
+    </aside>
+</main>
+
+<footer>
+    &copy; <span id="year"></span> NieuwsVandaag · Gemaakt door defMexy
+</footer>
+
+<script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+</body>
+</html>

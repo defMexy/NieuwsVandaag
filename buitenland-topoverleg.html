@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8" />
+    <title>NieuwsVandaag · Topoverleg levert voorzichtig akkoord op</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style>
+        :root { --accent:#0059b3; --accent-soft:#e6f0ff; --bg:#f3f4f5; --text:#111; --border:#ddd; --card-bg:#fff; }
+        *{margin:0;padding:0;box-sizing:border-box;}
+        body{font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:var(--bg);color:var(--text);line-height:1.5;}
+        header{position:sticky;top:0;background:#fff;border-bottom:1px solid var(--border);z-index:10;}
+        .header-inner{max-width:900px;margin:0 auto;padding:.75rem 1rem;display:flex;justify-content:space-between;align-items:center;gap:1rem;}
+        .logo{display:flex;gap:.4rem;align-items:center;font-weight:800;font-size:1.4rem;color:var(--accent);}
+        .logo .icon{width:26px;height:26px;border-radius:6px;background:var(--accent);color:#fff;display:flex;align-items:center;justify-content:center;font-size:.9rem;}
+        nav ul{list-style:none;display:flex;gap:1rem;font-size:.9rem;}
+        nav a{text-decoration:none;color:#333;}
+        nav a:hover{text-decoration:underline;}
+        main{max-width:900px;margin:1.5rem auto 2.5rem;padding:0 1rem;}
+        .label{display:inline-flex;font-size:.7rem;text-transform:uppercase;letter-spacing:.08em;color:var(--accent);background:var(--accent-soft);padding:.2rem .6rem;border-radius:999px;margin-bottom:.5rem;}
+        h1{font-size:1.8rem;margin:.3rem 0 .6rem;}
+        .meta{font-size:.85rem;color:#666;margin-bottom:1rem;}
+        article p{margin-bottom:.9rem;font-size:.98rem;}
+        article h2{font-size:1.2rem;margin:1.4rem 0 .4rem;}
+        a.back-link{display:inline-block;margin-top:1.5rem;font-size:.9rem;text-decoration:none;color:var(--accent);}
+        a.back-link:hover{text-decoration:underline;}
+        footer{border-top:1px solid var(--border);background:#fff;padding:1rem;font-size:.8rem;text-align:center;color:#777;}
+    </style>
+</head>
+<body>
+<header>
+    <div class="header-inner">
+        <div class="logo"><span class="icon">N</span><span>NieuwsVandaag</span></div>
+        <nav><ul><li><a href="index.html">Voorpagina</a></li></ul></nav>
+    </div>
+</header>
+
+<main>
+    <div class="label">Buitenland</div>
+    <h1>Topoverleg levert voorzichtig akkoord op</h1>
+    <div class="meta">Vandaag · 13:05 · Door buitenlandredactie</div>
+
+    <article>
+        <p>
+            In een grote Europese hoofdstad hebben leiders van verschillende landen
+            dagenlang met elkaar om de tafel gezeten. De spanning was hoog:
+            iedereen wilde voorkomen dat conflicten verder zouden oplopen.
+        </p>
+        <p>
+            Uiteindelijk kwam er een voorzichtig akkoord. Het is geen grote doorbraak,
+            maar wel een stap in de goede richting. Afspraken gaan vooral over beter
+            samenwerken, informatie delen en proberen ruzies sneller uit te praten
+            voordat ze uit de hand lopen.
+        </p>
+
+        <h2>Geen wonderoplossing, wel een begin</h2>
+        <p>
+            Diplomaten benadrukken dat één vergadering niet alle problemen kan oplossen.
+            Oude conflicten en wantrouwen verdwijnen niet in een paar dagen.
+            Maar het feit dat iedereen aan tafel bleef en bleef praten,
+            wordt gezien als een belangrijk signaal.
+        </p>
+        <p>
+            De komende maanden wordt duidelijk of de afspraken in de praktijk ook worden
+            nageleefd. Als landen zich eraan houden, kan de spanning langzaam afnemen.
+        </p>
+    </article>
+
+    <a href="index.html" class="back-link">&larr; Terug naar voorpagina</a>
+</main>
+
+<footer>
+    © <span id="year"></span> NieuwsVandaag · Gemaakt door defMexy
+</footer>
+
+<script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
